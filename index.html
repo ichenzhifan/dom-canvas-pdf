@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #table{
+      margin-top: 20px;
+    }
+  </style>
+  <script src="./jspdf.js"></script>
+  <script src="./dom2canvas.js"></script>
+</head>
+
+<body>
+  <button id="btn">export to pdf</button>
+
+  <div id="table">
+      <table style="width: 200px;" border="1">
+        <thead>
+          <th>id</th>
+          <th>name</th>
+          <th>age</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Jack Jack Jack  Jack Jack Jack Jack Jack Jack Jack Jack</td>
+            <td>18</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>David</td>
+            <td>28</td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+
+  <script>
+    window.onload = function () {
+      const table = document.getElementById('table');
+      const btn = document.getElementById('btn');
+
+      btn.onclick = function () {
+        const instance = new Dom2Canvas(table);
+        instance.toPdf(Date.now());
+      }
+    };
+  </script>
+</body>
+
+</html>
